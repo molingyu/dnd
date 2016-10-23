@@ -1,0 +1,2 @@
+class DndInfo < ApplicationRecord
+end

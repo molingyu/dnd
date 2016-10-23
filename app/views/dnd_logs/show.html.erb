@@ -1,0 +1,25 @@
+<div class="context">
+  <h1 style="text-align: center;">镜喵小姐姐的D&D团</h1>
+  <p>
+    <strong>Title:</strong>
+    <%= @dnd_log.title %>
+  </p>
+
+  <p>
+    <strong>date:</strong>
+    <%= @dnd_log.date %>
+  </p>
+
+  <p>
+    <strong>Info:</strong>
+  </p>
+</div>
+<footer>
+  <div class="brack">
+    <p>
+      <%= link_to 'Index', root_path %>|
+      <%= link_to 'D&D Log', dnd_logs_path %>|
+      <%= link_to 'Player', players_path %>
+    </p>
+  </div>
+</footer>

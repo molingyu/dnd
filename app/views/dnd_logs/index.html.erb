@@ -1,0 +1,31 @@
+<div class="context">
+  <h1>D&D Log List - 镜喵小姐姐的D&D团</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+    </tr>
+
+    <% @dnd_log.each do |log| %>
+        <tr>
+          <td><%= log.title %></td>
+          <td><%= log.date %></td>
+          <td><%= link_to 'Show', dnd_log_path(log) %></td>
+          <td><%= link_to 'Edit', edit_dnd_log_path(log) %></td>
+          <td><%= link_to 'Destroy', dnd_log_path(log),
+                          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+  </table>
+
+</div>
+<footer>
+  <div class="brack">
+    <p>
+      <%= link_to 'Index', root_path %>|
+      <%= link_to 'New D&D Log', new_dnd_log_path %>|
+      <%= link_to 'Player', players_path %>
+    </p>
+  </div>
+</footer>

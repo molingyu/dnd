@@ -1,0 +1,2 @@
+module DndLogsHelper
+end

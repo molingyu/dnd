@@ -1,0 +1,41 @@
+<div class="context">
+  <h1>New D&D Log - 镜喵小姐姐的D&D团</h1>
+  <%= form_for :dnd_log, url: dnd_logs_path do |f| %>
+      <% if @dnd_log.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@dnd_log.errors.count, "error") %> prohibited
+              this article from being saved:</h2>
+            <ul>
+              <% @dnd_log.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <p>
+        <%= f.label :title %>:&nbsp;
+        <%= f.text_field :title %>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <%= f.label :date %>:&nbsp;
+        <%= f.date_field :date, value: Time.now.to_date %>
+      </p>
+
+      <p>
+        <%= f.label :text %>:<br>
+        <%= f.text_area :text, style: 'width: 90%; margin-top: 8px;', rows: 26 %>
+      </p>
+
+      <p>
+        <%= f.submit class: 'submit' %>
+      </p>
+  <% end %>
+</div>
+<footer>
+  <div class="brack">
+    <p>
+      <%= link_to 'Index', root_path %>|
+      <%= link_to 'D&D Log', dnd_logs_path %>|
+      <%= link_to 'Player', players_path %>
+    </p>
+  </div>
+</footer>
