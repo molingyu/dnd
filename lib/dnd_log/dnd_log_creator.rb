@@ -1,4 +1,4 @@
-require 'qmessage'
+# require 'qmessage'
 
 class DND::DndLogCreator
 
