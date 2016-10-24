@@ -4,17 +4,19 @@
   <table>
     <tr>
       <th>Title</th>
-      <th>Text</th>
+      <th>Data</th>
+      <th>Action</th>
     </tr>
 
     <% @dnd_log.each do |log| %>
         <tr>
-          <td><%= log.title %></td>
+          <td><%= link_to  log.title, dnd_log_path(log) %></td>
           <td><%= log.date %></td>
-          <td><%= link_to 'Show', dnd_log_path(log) %></td>
-          <td><%= link_to 'Edit', edit_dnd_log_path(log) %></td>
-          <td><%= link_to 'Destroy', dnd_log_path(log),
-                          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to 'Edit', edit_dnd_log_path(log) %>
+            <%= link_to 'Destroy', dnd_log_path(log),
+                        method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
         </tr>
     <% end %>
   </table>

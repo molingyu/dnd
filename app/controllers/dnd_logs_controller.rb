@@ -1,5 +1,4 @@
 class DndLogsController < ApplicationController
-
   http_basic_authenticate_with name: "shitake", password: "z3751021", except: [:index, :show]
 
   def new

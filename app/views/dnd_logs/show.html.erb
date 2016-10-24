@@ -10,9 +10,34 @@
     <%= @dnd_log.date %>
   </p>
 
-  <p>
-    <strong>Info:</strong>
-  </p>
+  <strong>Log:</strong>
+  <div class="log-list-box">
+    <div class="log-list">
+      <p>
+        <strong>说明:</strong>&nbsp;DM：蓝色&nbsp;&nbsp; 超游：灰色 &nbsp;&nbsp;DiceBot：黄色
+      </p>
+      <table border="1">
+        <tr>
+          <th>Time</th>
+          <th>Player</th>
+          <th>Message</th>
+        </tr>
+        <% QMsg.run(@dnd_log.text).each do |log| %>
+            <%= color = '' %>
+            <% color = 'background-color: rgb(128, 240, 255)' if log.u_code == '715220186' %>
+            <% color = 'background-color: rgb(250, 157, 78)' if log.u_code == '2339862114' %>
+            <% color = 'background-color: rgb(128, 128, 128)' if ['『', '[', '【', '(', '（'].include?(log.message[1]) %>
+            <tr style="<%= color %>">
+              <td><%= "#{log.time.hour}:#{log.time.min}:#{log.time.sec}" %></td>
+              <td><%= log.u_name %></td>
+              <td><%= log.message %></td>
+            </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+
 </div>
 <footer>
   <div class="brack">
